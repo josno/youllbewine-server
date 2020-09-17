@@ -1,14 +1,12 @@
 require("dotenv").config();
 const express = require("express");
-
+const wineRouter = require("./routes/wine-route");
 const { NODE_ENV } = require("./config");
 const app = express();
 
 //routes
 
-app.get("/", (req, res) => {
-	res.send("hello world");
-});
+app.use("/api/v1/wine", wineRouter);
 
 app.use(function errorHandler(error, req, res, next) {
 	let response;
