@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-new wineSchema() = new mongoose.Schema({
+const wineSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: [true, "Wine must have name"],
@@ -14,8 +14,15 @@ new wineSchema() = new mongoose.Schema({
 		type: String,
 		required: [true, "Wine must have country"],
 	},
+	image: {
+		type: String,
+	},
 	food_pairings: [{ type: String, required: true }],
+	date_added: {
+		type: Date,
+		default: Date.now,
+	},
 });
 
-const Wines = mongoose.model("Wines", wineSchema);
-module.exports = Wines;
+const Wine = mongoose.model("Wine", wineSchema);
+module.exports = Wine;
