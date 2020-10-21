@@ -5,13 +5,12 @@ const { PORT } = require("./config");
 
 const db = process.env.DATABASE;
 
-mongoose
-	.connect(db, {
-		useNewUrlParser: true,
-		useCreateIndex: true,
-		useFindAndModify: false,
-		useUnifiedTopology: true,
-	})
+mongoose.connect(db, {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useFindAndModify: false,
+	useUnifiedTopology: true,
+});
 
 app.listen(PORT, () => {
 	console.log(`Server started.`);

@@ -6,10 +6,7 @@ const wineSchema = new mongoose.Schema({
 		required: [true, "Wine must have name"],
 		unique: true,
 	},
-	color: {
-		type: String,
-		required: [true, "Wine must have color"],
-	},
+	color: { type: String, required: [true, "Wine must have color"] },
 	country: {
 		type: String,
 		required: [true, "Wine must have country"],
