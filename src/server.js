@@ -12,10 +12,7 @@ mongoose
 		useFindAndModify: false,
 		useUnifiedTopology: true,
 	})
-	.then((res) => {
-		console.log("db connected");
-	});
 
 app.listen(PORT, () => {
-	console.log(`Server listening at http://localhost:${PORT}`);
+	console.log(`Server started.`);
 });
