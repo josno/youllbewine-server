@@ -6,6 +6,7 @@ const { expect } = require("chai");
 
 describe("Wine Endpoint", () => {
 	let db;
+
 	before("set db instance", () => {
 		db = mongoose.connect(`${process.env.TEST_DATABASE_URL}/youllbewine-test`, {
 			useNewUrlParser: true,
@@ -34,7 +35,7 @@ describe("Wine Endpoint", () => {
 		});
 
 		it("Gets all wine", () => {
-			return supertest(app).get(`/api/v1/wine`).expect(200);
+			return supertest(app).get(`/api/v1/wines`).expect(200);
 		});
 
 		afterEach("delete test entry", async () => {
@@ -52,7 +53,7 @@ describe("Wine Endpoint", () => {
 		};
 
 		it("Adds new wine", () => {
-			return supertest(app).post(`/api/v1/wine`).send(newWine).expect(201);
+			return supertest(app).post(`/api/v1/wines`).send(newWine).expect(201);
 		});
 
 		afterEach("delete test entry", async () => {
@@ -82,7 +83,7 @@ describe("Wine Endpoint", () => {
 			});
 
 			return supertest(app)
-				.get(`/api/v1/wine/${wine._id}`)
+				.get(`/api/v1/wines/${wine._id}`)
 				.expect(200)
 				.then((res) => {
 					expect(res.body.name).to.eql(wine.name);
