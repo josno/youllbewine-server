@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const d = new Date();
+
 const wineSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -17,7 +19,7 @@ const wineSchema = new mongoose.Schema({
 	food_pairings: [{ type: String, required: true }],
 	date_added: {
 		type: Date,
-		default: Date.now,
+		default: new Date().toISOString(),
 	},
 });
 
